@@ -24,8 +24,7 @@ const ContactForm = ({addNumber}) => {
 
         addNumber({...values, id: uuidv4()})
 
-        initialValues = {name: '', number: ''}
-        action.resetForm
+        action.resetForm()
     }
 
     return (
