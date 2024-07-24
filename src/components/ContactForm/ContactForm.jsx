@@ -1,29 +1,9 @@
 import {useId} from "react";
-import {Formik, Form, Field, ErrorMessage} from 'formik';
-import styled from '@emotion/styled'
+import {Formik} from 'formik';
+import {SubmitButton, Input, Error, ContactsForm} from './ContactForm.styled.js'
 import { v4 as uuidv4 } from 'uuid'
 import PropTypes from "prop-types";
 import * as Yup from 'yup';
-
-
-const SubmitButton = styled.button`
-    width:100px;
-`
-
-const ContactsForm = styled(Form)`
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    width:200px;
-    margin-bottom:20px;
-`
-
-const Input = styled(Field)`
-`
-
-const Error = styled(ErrorMessage)`
-    color:red;
-`
 
 const validationSchema = Yup.object({
     name: Yup.string().min(3, 'Name too short!').max(50, 'Name too long!').required('Please enter your name'),
@@ -58,7 +38,7 @@ const ContactForm = ({addNumber}) => {
                 <Input type='text' name='number' id={id.number}></Input>
                 <Error name='number' component='span' />
 
-                <SubmitButton type='submit'>Submit</SubmitButton>
+                <SubmitButton type='submit'>Add</SubmitButton>
             </ContactsForm>
         </Formik>
     )
